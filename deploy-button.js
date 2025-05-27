@@ -6,7 +6,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background-color: #12732b;
+            background-color: #10b981;
             color: #ffffff;
             border: none;
             border-radius: 50%;

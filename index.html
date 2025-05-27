@@ -35,7 +35,14 @@
   <meta property="twitter:title" content="Deploy with Workers Button">
   <meta property="twitter:description" content="Create deploy buttons for GitHub repositories with Cloudflare Workers for seamless deployment">
   <meta property="twitter:image" content="https://bucket.jessejesse.com/logo.png">
+  
+  <!-- Toastify CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.css" crossorigin="anonymous">
 
+  <!-- Toastify JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.js" crossorigin="anonymous"></script>
+
+  
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
@@ -122,9 +129,21 @@
       justify-content: center;
       margin-top: 1rem;
     }
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+      }
   </style>
-</head>
-<body>
+
   <main class="container">
     <h1>Deploy Your GitHub Repo</h1>
     <form id="deployForm" onsubmit="event.preventDefault(); generateButtons();">
@@ -144,63 +163,78 @@
   </main>
 
   <script>
-      function generateButtons() {
-        const username = document.getElementById('username').value.trim();
-        const repo = document.getElementById('repo').value.trim();
-        if (!username || !repo) return alert('Please fill in both fields.');
+    function generateButtons() {
+      const username = document.getElementById('username').value.trim();
+      const repo = document.getElementById('repo').value.trim();
+      if (!username || !repo) return alert('Please fill in both fields.');
 
-        const cloudflareURL = `https://deploy.workers.cloudflare.com/?url=https://github.com/${username}/${repo}`;
-        const vercelURL = `https://vercel.com/new/clone?repository-url=https://github.com/${username}/${repo}`;
-        const netlifyURL = `https://app.netlify.com/start/deploy?repository=https://github.com/${username}/${repo}`;
+      const cloudflareURL = `https://deploy.workers.cloudflare.com/?url=https://github.com/${username}/${repo}`;
+      const vercelURL = `https://vercel.com/new/clone?repository-url=https://github.com/${username}/${repo}`;
+      const netlifyURL = `https://app.netlify.com/start/deploy?repository=https://github.com/${username}/${repo}`;
+      const sandboxURL = `https://codesandbox.io/s/github/${username}/${repo}`;
 
-        const markdown = `
-      <center>
-      <a href="${cloudflareURL}">
-        <img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare Workers" />
-      </a>
-      <br/>
-      <a href="${vercelURL}">
-        <img src="https://vercel.com/button" alt="Deploy with Vercel" />
-      </a>
-      <br/>
-      <a href="${netlifyURL}">
-        <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />
-      </a>
-      </center>`;
+      const markdown = `
+        <center>
+        <a href="${cloudflareURL}">
+          <img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare Workers" />
+        </a>
+        <br/>
+        <a href="${vercelURL}">
+          <img src="https://vercel.com/button" alt="Deploy with Vercel" />
+        </a>
+        <br/>
+        <a href="${netlifyURL}">
+          <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />
+        </a>
+        <br/>
+        <a href="${sandboxURL}">
+          <img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Deploy to CodeSandbox" />
+        </a>
+        <br/>
+        </center>`;
 
-        document.getElementById('button-container').innerHTML = `
-          <a href="${cloudflareURL}" target="_blank" rel="noopener">
-            <img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare Workers" />
-          </a>
-          <a href="${vercelURL}" target="_blank" rel="noopener">
-            <img src="https://vercel.com/button" alt="Deploy with Vercel" />
-          </a>
-          <a href="${netlifyURL}" target="_blank" rel="noopener">
-            <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />
-          </a>`;
+      document.getElementById('button-container').innerHTML = `
+        <a href="${cloudflareURL}" target="_blank" rel="noopener">
+          <img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare Workers" />
+        </a>
+        <a href="${vercelURL}" target="_blank" rel="noopener">
+          <img src="https://vercel.com/button" alt="Deploy with Vercel" />
+        </a>
+        <a href="${netlifyURL}" target="_blank" rel="noopener">
+          <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />
+        </a>
+        <a href="${sandboxURL}" target="_blank" rel="noopener">
+          <img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Deploy to CodeSandbox" />
+        </a>`;
 
-        document.getElementById('markdownCode').textContent = markdown;
-        document.getElementById('result').classList.remove('hidden');
-
- 
-        document.getElementById('generateButton').classList.add('hidden');
-      }
+      document.getElementById('markdownCode').textContent = markdown;
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('generateButton').classList.add('hidden');
+    }
 
     function copyToClipboard() {
       const code = document.getElementById('markdownCode').textContent;
       navigator.clipboard.writeText(code)
-        .then(() => alert('Markdown copied to clipboard!'))
-        .catch(err => alert('Failed to copy: ' + err));
+        .then(() => {
+          Toastify({
+            text: "Markdown copied to clipboard!",
+            duration: 3000,
+            backgroundColor: "#4CAF50",
+            close: true
+          }).showToast();
+        })
+        .catch(err => {
+          Toastify({
+            text: "Failed to copy: " + err,
+            duration: 3000,
+            backgroundColor: "#f44336",
+            close: true
+          }).showToast();
+        });
     }
   </script>
+
 </body>
 </html>
-
-
-
-
-
-
-
 
 
