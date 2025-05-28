@@ -1,6 +1,6 @@
-# DeployMyRepo 🚀
+# 🚀 deploy-my-repo
 
-**DeployMyRepo** is a simple tool to generate **one-click deploy buttons** for your GitHub repositories. Supports platforms like **Vercel**, **Cloudflare Workers**, **Netlify**, and **CodeSandbox**.
+**deploy-my-repo** is a simple tool to generate **one-click deploy buttons** for your GitHub repositories. Supports platforms like **Vercel**, **Cloudflare Workers**, **Netlify**, and **CodeSandbox**.
 
 👉 Live Demo: [https://deploy-my-repo.vercel.app](https://deploy-my-repo.vercel.app)
 
@@ -41,12 +41,10 @@
 
 After filling in `username: sudo-self` and `repo: deploy-my-repo`, you'll see buttons like:
 
-```
 <a href="https://vercel.com/new/git/sudo-self/deploy-my-repo">
   <img src="https://vercel.com/button" alt="Deploy with Vercel">
 </a>
 
-```
 ## Embed the button generator in your project docs or website
 
 
