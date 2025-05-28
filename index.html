@@ -1,199 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deploy with Workers & Vercel</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deploy with Workers & Vercel</title>
 
-  <!-- Icons and Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" sizes="32x32" href="favicon-32.png">
-  <link rel="icon" sizes="192x192" href="favicon-192.png">
-  <link rel="manifest" href="manifest.json">
+    <!-- Icons and Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" sizes="192x192" href="favicon-192.png" />
+    <link rel="manifest" href="manifest.json" />
 
-  <!-- Windows and Theme Color -->
-  <meta name="msapplication-TileColor" content="#000000">
-  <meta name="msapplication-TileImage" content="favicon-144.png">
-  <meta name="theme-color" content="#000000">
+    <!-- Theme and Metadata -->
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="msapplication-TileImage" content="favicon-144.png" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="title" content="Deploy Button Generator" />
+    <meta
+      name="description"
+      content="Create deploy buttons for GitHub repositories with Cloudflare Workers for seamless deployment"
+    />
+    <meta name="author" content="sudo-self" />
 
-  <!-- Metadata -->
-  <meta name="title" content="Deploy with Workers Button">
-  <meta name="description" content="Create deploy buttons for GitHub repositories with Cloudflare Workers for seamless deployment">
-  <meta name="author" content="sudo-self">
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://sudo-self.github.io/deploy-button/"
+    />
+    <meta property="og:title" content="Deploy with Workers Button" />
+    <meta
+      property="og:description"
+      content="Create deploy buttons for GitHub repositories with Cloudflare Workers for seamless deployment"
+    />
+    <meta
+      property="og:image"
+      content="./og.png"
+    />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta
+      property="twitter:url"
+      content="https://sudo-self.github.io/deploy-button/"
+    />
+    <meta property="twitter:title" content="Deploy Button Generator" />
+    <meta
+      property="twitter:description"
+      content="Create deploy buttons for GitHub repositories with Cloudflare Workers for seamless deployment"
+    />
+    <meta
+      property="twitter:image"
+      content="./logo.png"
+    />
 
-  <!-- Open Graph -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://bucket.jessejesse.com/deploy.html">
-  <meta property="og:title" content="Deploy with Workers Button">
-  <meta property="og:description" content="Create deploy buttons for GitHub repositories with Cloudflare Workers for seamless deployment">
-  <meta property="og:image" content="https://bucket.jessejesse.com/logo.png">
+    <!-- Fonts and Toastify -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.css"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@900&display=swap"
+      rel="stylesheet"
+    />
 
-  <!-- Twitter Card -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://bucket.jessejesse.com/deploy.html">
-  <meta property="twitter:title" content="Deploy with Workers Button">
-  <meta property="twitter:description" content="Create deploy buttons for GitHub repositories with Cloudflare Workers for seamless deployment">
-  <meta property="twitter:image" content="https://bucket.jessejesse.com/logo.png">
-  
-  <!-- Toastify CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.css" crossorigin="anonymous">
-
-  <!-- Toastify JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.js" crossorigin="anonymous"></script>
-
-  
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-</head>
-
-<body>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #000;
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 2rem;
-    }
-    .container {
-      background: #111;
-      padding: 2rem;
-      border-radius: 12px;
-      max-width: 480px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
-    }
-    h1 {
-      font-size: 1.75rem;
-      margin-bottom: 1.25rem;
-    }
-    .input-field {
-      width: 100%;
-      padding: 0.75rem 1rem;
-      margin-bottom: 0.75rem;
-      background: #1e1e1e;
-      border: 1px solid #333;
-      border-radius: 6px;
-      color: #fff;
-      font-size: 1rem;
-    }
-    .button {
-      background: #10b981;
-      color: white;
-      padding: 0.75rem 1.25rem;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .button:hover {
-      background: #059669;
-    }
-    .copy-button {
-      background: #3b82f6;
-    }
-    .copy-button:hover {
-      background: #2563eb;
-    }
-    .mockup-code {
-      background: #1e1e1e;
-      padding: 1rem;
-      border-radius: 6px;
-      margin-top: 1rem;
-      text-align: left;
-      font-size: 0.875rem;
-      overflow-x: auto;
-    }
-    .deploy-buttons {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .hidden {
-      display: none;
-    }
-    .button-group {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-      .toast {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #333;
-        color: #fff;
-        padding: 10px 20px;
-        border-radius: 8px;
-        font-size: 1rem;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-        z-index: 9999;
+    <style>
+      :root {
+        --h: 33;
+        --s: 90%;
+        --l: 90%;
       }
-  </style>
 
-  <main class="container">
-    <h1>Deploy Your GitHub Repo</h1>
-    <form id="deployForm" onsubmit="event.preventDefault(); generateButtons();">
-      <input id="username" class="input-field" type="text" placeholder="GitHub Username" required />
-      <input id="repo" class="input-field" type="text" placeholder="Repository Name" required />
-      <button class="button" type="submit" id="generateButton">Generate Deploy Buttons</button>
-    </form>
+      * {
+        box-sizing: border-box;
+      }
 
-    <section id="result" class="hidden">
-      <div class="deploy-buttons" id="button-container"></div>
-      <pre class="mockup-code"><code id="markdownCode"></code></pre>
-      <div class="button-group">
-        <button class="button copy-button" onclick="copyToClipboard()">Copy Markdown</button>
-        <button class="button" onclick="generateButtons()">Generate Deploy Buttons</button>
-      </div>
-    </section>
-  </main>
+      body {
+        margin: 0;
+        font-family: "Inter", sans-serif;
+        background: #000;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem;
+      }
 
-  <script>
-    function generateButtons() {
-      const username = document.getElementById('username').value.trim();
-      const repo = document.getElementById('repo').value.trim();
-      if (!username || !repo) return alert('Please fill in both fields.');
+      .container {
+        background: #111;
+        padding: 2rem;
+        border-radius: 12px;
+        max-width: 480px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+      }
 
-      const cloudflareURL = `https://deploy.workers.cloudflare.com/?url=https://github.com/${username}/${repo}`;
-      const vercelURL = `https://vercel.com/new/clone?repository-url=https://github.com/${username}/${repo}`;
-      const netlifyURL = `https://app.netlify.com/start/deploy?repository=https://github.com/${username}/${repo}`;
-      const sandboxURL = `https://codesandbox.io/s/github/${username}/${repo}`;
+      h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1.25rem;
+      }
 
-      const markdown = `
-        <center>
-        <a href="${cloudflareURL}">
-          <img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare Workers" />
-        </a>
-        <br/>
-        <a href="${vercelURL}">
-          <img src="https://vercel.com/button" alt="Deploy with Vercel" />
-        </a>
-        <br/>
-        <a href="${netlifyURL}">
-          <img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />
-        </a>
-        <br/>
-        <a href="${sandboxURL}">
-          <img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Deploy to CodeSandbox" />
-        </a>
-        <br/>
-        </center>`;
+      .input-field {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        margin-bottom: 0.75rem;
+        background: #1e1e1e;
+        border: 1px solid #333;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 1rem;
+      }
 
-      document.getElementById('button-container').innerHTML = `
+      .deploy-buttons {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .button-group {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .glass-btn {
+        padding: 0.75rem 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .glass-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Deploy GitHub Repo</h1>
+      <div
+        class="deploy-buttons"
+        id="button-container"
+        style="margin-bottom: 1.5rem"
+      ></div>
+
+      <form
+        id="deployForm"
+        onsubmit="event.preventDefault(); generateButtons();"
+      >
+        <input
+          id="username"
+          class="input-field"
+          type="text"
+          placeholder="GitHub Username"
+          required
+        />
+        <input
+          id="repo"
+          class="input-field"
+          type="text"
+          placeholder="Repository Name"
+          required
+        />
+        <div class="button-group">
+          <button class="glass-btn" type="submit" id="generateButton">
+            Generate Buttons
+          </button>
+          <button
+            class="glass-btn hidden"
+            type="button"
+            id="exportButton"
+            onclick="exportHTML()"
+          >
+            Export
+          </button>
+          <button
+            class="glass-btn hidden"
+            type="button"
+            id="regenerateButton"
+            onclick="regenerate()"
+          >
+            Reset
+          </button>
+        </div>
+      </form>
+    </main>
+
+    <script>
+      function generateButtons() {
+        const username = document.getElementById("username").value.trim();
+        const repo = document.getElementById("repo").value.trim();
+        if (!username || !repo) return alert("Please fill in both fields.");
+
+        const cloudflareURL = `https://deploy.workers.cloudflare.com/?url=https://github.com/${username}/${repo}`;
+        const vercelURL = `https://vercel.com/new/clone?repository-url=https://github.com/${username}/${repo}`;
+        const netlifyURL = `https://app.netlify.com/start/deploy?repository=https://github.com/${username}/${repo}`;
+        const sandboxURL = `https://codesandbox.io/s/github/${username}/${repo}`;
+
+        document.getElementById("button-container").innerHTML = `
         <a href="${cloudflareURL}" target="_blank" rel="noopener">
           <img src="https://deploy.workers.cloudflare.com/button" alt="Deploy to Cloudflare Workers" />
         </a>
@@ -207,34 +232,83 @@
           <img src="https://codesandbox.io/static/img/play-codesandbox.svg" alt="Deploy to CodeSandbox" />
         </a>`;
 
-      document.getElementById('markdownCode').textContent = markdown;
-      document.getElementById('result').classList.remove('hidden');
-      document.getElementById('generateButton').classList.add('hidden');
-    }
+        document.getElementById("generateButton").classList.add("hidden");
+        document.getElementById("exportButton").classList.remove("hidden");
+        document.getElementById("regenerateButton").classList.remove("hidden");
+      }
 
-    function copyToClipboard() {
-      const code = document.getElementById('markdownCode').textContent;
-      navigator.clipboard.writeText(code)
-        .then(() => {
-          Toastify({
-            text: "Markdown copied to clipboard!",
-            duration: 3000,
-            backgroundColor: "#4CAF50",
-            close: true
-          }).showToast();
-        })
-        .catch(err => {
-          Toastify({
-            text: "Failed to copy: " + err,
-            duration: 3000,
-            backgroundColor: "#f44336",
-            close: true
-          }).showToast();
-        });
-    }
-  </script>
+      function regenerate() {
+        document.getElementById("button-container").innerHTML = "";
+        document.getElementById("username").value = "";
+        document.getElementById("repo").value = "";
+        document.getElementById("generateButton").classList.remove("hidden");
+        document.getElementById("exportButton").classList.add("hidden");
+        document.getElementById("regenerateButton").classList.add("hidden");
+        document.getElementById("username").focus();
+      }
 
+      function exportHTML() {
+        const buttonsHTML =
+          document.getElementById("button-container").innerHTML;
+
+        const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deploy Buttons</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+    center {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    img {
+      display: block;
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <center>${buttonsHTML}</center>
 </body>
+</html>`;
+
+        const blob = new Blob([htmlContent], { type: "text/html" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "deploy-buttons.html";
+        a.click();
+        URL.revokeObjectURL(url);
+        Toastify({
+          text: "Exported HTML!",
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "#00b09b",
+        }).showToast();
+      }
+    </script>
+  </body>
 </html>
+
+
+
+
+
 
 
