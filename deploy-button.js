@@ -32,10 +32,11 @@
             transform: translate(-50%, -50%);
             width: 80%;
             max-width: 600px;
-            background-color: #2d3748;
+            background-color:  #10b981;
             color: #e5e7eb;
             padding: 20px;
             border-radius: 8px;
+            border-color: #000000;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 1001;
         }

@@ -154,6 +154,31 @@
       .hidden {
         display: none;
       }
+        .page-footer {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          background: none;
+          text-align: center;
+          padding: 1rem 0.5rem;
+          border: none;
+          font-size: 0.875rem;
+          color: #ccc;
+          z-index: 10;
+        }
+
+        .code-snippet {
+          display: inline-block;
+          background: #1e1e1e;
+          color: #00ff99;
+          padding: 0.5rem 1rem;
+          border-radius: 6px;
+          font-family: monospace;
+          overflow-x: auto;
+          white-space: nowrap;
+          margin-top: 0.5rem;
+        }
+
     </style>
   </head>
   <body>
@@ -303,8 +328,13 @@
         }).showToast();
       }
     </script>
-  </body>
+  <footer class="page-footer">
+    <p>add this script to embed the button generator in any project</p>
+    <pre class="code-snippet">&lt;script src="https://sudo-self.github.io/deploy-button/deploy-button.js"&gt;&lt;/script&gt;</pre>
+  </footer>
+</body>
 </html>
+
 
 
 
