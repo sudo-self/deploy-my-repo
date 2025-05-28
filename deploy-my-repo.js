@@ -22,7 +22,7 @@
             z-index: 1000;
         }
         .floating-button:hover {
-            background-color: #e56e24;
+            background-color: #f0f0f0;
         }
         .popup {
             display: none;
@@ -73,7 +73,7 @@
     popup.className = 'popup';
     popup.innerHTML = `
         <button class="close-button" onclick="closePopup()">×</button>
-        <iframe src="https://sudo-self.github.io/deploy-my-repo/" title="Deploy with workers"></iframe>
+        <iframe src="https://deploy-my-repo.vercel.app" title="Deploy with workers"></iframe>
     `;
 
     document.body.appendChild(button);
