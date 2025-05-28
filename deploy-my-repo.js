@@ -73,7 +73,7 @@
     popup.className = 'popup';
     popup.innerHTML = `
         <button class="close-button" onclick="closePopup()">×</button>
-        <iframe src="https://sudo-self.github.io/deploy-button/" title="Deploy with workers"></iframe>
+        <iframe src="https://sudo-self.github.io/deploy-my-repo/" title="Deploy with workers"></iframe>
     `;
 
     document.body.appendChild(button);
