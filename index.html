@@ -1,475 +1,521 @@
 <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-          <title>deploy-my-repo</title>
+    <title>DeployMyRepo – One-Click Deploy Buttons for GitHub</title>
 
-          <!-- Tailwind CDN -->
-          <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-          <!-- Icons & Manifest -->
-          <link rel="icon" type="image/x-icon" href="favicon.ico" />
-          <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-          <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-          <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
-          <link rel="manifest" href="manifest.json" />
+    <!-- Icons & Manifest -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
+    <link rel="manifest" href="manifest.json" />
 
-          <!-- Meta -->
-          <meta name="msapplication-TileColor" content="#000000" />
-          <meta name="msapplication-TileImage" content="favicon-144.png" />
-          <meta name="theme-color" content="#000000" />
-          <meta name="description" content="Create one-click deploy buttons for GitHub repositories to Cloudflare Workers, Vercel, Netlify, and CodeSandbox." />
-          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-          <meta name="author" content="sudo-self" />
+    <!-- Meta -->
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="msapplication-TileImage" content="favicon-144.png" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="DeployMyRepo lets you create one-click deploy buttons for GitHub projects to Cloudflare Workers, Vercel, Netlify, and CodeSandbox. Fast, easy, and developer-friendly."
+    />
+    <meta
+      name="keywords"
+      content="deploymyrepo, one-click deploy, deploy buttons, GitHub deploy, Cloudflare Workers, Vercel, Netlify, CodeSandbox, create deploy button"
+    />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="author" content="sudo-self" />
 
-          <!-- Open Graph -->
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://deploy-my-repo.vercel.app" />
-          <meta property="og:title" content="deploy-my-repo" />
-          <meta property="og:image" content="https://deploy-my-repo.vercel.app/og.png" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://deploy-my-repo.vercel.app" />
+    <meta
+      property="og:title"
+      content="DeployMyRepo – One-Click Deploy Buttons for GitHub"
+    />
+    <meta
+      property="og:image"
+      content="https://deploy-my-repo.vercel.app/og.png"
+    />
+    <meta
+      property="og:description"
+      content="Create one-click deploy buttons for GitHub projects. Supports Vercel, Cloudflare, Netlify, and more!"
+    />
+    <meta
+      property="twitter:description"
+      content="Create one-click deploy buttons for GitHub projects. Supports Vercel, Cloudflare, Netlify, and more!"
+    />
 
-          <!-- Twitter -->
-          <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://deploy-my-repo.vercel.app" />
-          <meta property="twitter:title" content="deploy-my-repo" />
-          <meta property="twitter:image" content="https://deploy-my-repo.vercel.app/og.png" />
-        </head>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://deploy-my-repo.vercel.app" />
+    <meta
+      property="twitter:title"
+      content="DeployMyRepo – One-Click Deploy Buttons for GitHub"
+    />
+    <meta
+      property="twitter:image"
+      content="https://deploy-my-repo.vercel.app/og.png"
+    />
 
-          <!-- Fonts and Toastify -->
-          <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.css"
-            integrity="sha512-5/OHq9Z0Q7YI4pXW+1YjNk+Y5NkK7tM9+Q39DfYQm0AE0Z+jGYb0S/5FpS0JxZ8Z5Qw1lI9TZ6d2Q+3O3Jf0w=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-          />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans:wght@900&display=swap"
-            rel="stylesheet"
-          />
+    <!-- Fonts and Toastify -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.css"
+      integrity="sha512-5/OHq9Z0Q7YI4pXW+1YjNk+Y5NkK7tM9+Q39DfYQm0AE0Z+jGYb0S/5FpS0JxZ8Z5Qw1lI9TZ6d2Q+3O3Jf0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome CDN  -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"
+      integrity="sha384-mQ93k0RlgDq7HkG5qD0XWxSuvzzKbGl0kOprskWQCyS8EV14Z8N7WzMdN7S1z3mo"
+      crossorigin="anonymous"
+    />
 
-          <style>
-            :root {
-              --primary-bg: #000;
-              --secondary-bg: #111;
-              --input-bg: #1e1e1e;
-              --border-color: #333;
-              --text-color: #fff;
-              --accent-color: hsl(33, 90%, 90%);
-              --button-hover: rgba(255, 255, 255, 0.2);
-              --code-color: #00ff99;
-            }
+    <style>
+      :root {
+        --primary-bg: #000;
+        --secondary-bg: #111;
+        --input-bg: #1e1e1e;
+        --border-color: #333;
+        --text-color: #fff;
+        --accent-color: hsl(33, 90%, 90%);
+        --button-hover: rgba(255, 255, 255, 0.2);
+        --code-color: #00ff99;
+      }
 
-            * {
-              box-sizing: border-box;
-              margin: 0;
-              padding: 0;
-            }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-            body {
-              font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
-              background: var(--primary-bg);
-              color: var(--text-color);
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: center;
-              min-height: 100vh;
-              padding: 2rem;
-              line-height: 1.5;
-            }
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: var(--primary-bg);
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 2rem;
+        line-height: 1.5;
+      }
 
-            .container {
-              background: var(--secondary-bg);
-              padding: 2.5rem;
-              border-radius: 12px;
-              max-width: 800px;
-              width: 100%;
-              text-align: center;
-              box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
-              margin-bottom: 3rem;
-            }
+      .container {
+        background: var(--secondary-bg);
+        padding: 2.5rem;
+        border-radius: 12px;
+        max-width: 800px;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+        margin-bottom: 3rem;
+      }
 
-            h1 {
-              font-size: 1.75rem;
-              margin-bottom: 1.5rem;
-              font-weight: 600;
-              color: var(--accent-color);
-            }
+      h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+        font-weight: 600;
+        color: var(--accent-color);
+      }
 
-            .description {
-              margin-bottom: 1.5rem;
-              color: #aaa;
-              max-width: 600px;
-              margin-left: auto;
-              margin-right: auto;
-            }
+      .description {
+        margin-bottom: 1.5rem;
+        color: #aaa;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
-            .input-field {
-              width: 100%;
-              padding: 0.875rem 1.25rem;
-              margin-bottom: 1rem;
-              background: var(--input-bg);
-              border: 1px solid var(--border-color);
-              border-radius: 8px;
-              color: var(--text-color);
-              font-size: 1rem;
-              transition: border-color 0.2s;
-            }
+      .input-field {
+        width: 100%;
+        padding: 0.875rem 1.25rem;
+        margin-bottom: 1rem;
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        color: var(--text-color);
+        font-size: 1rem;
+        transition: border-color 0.2s;
+      }
 
-            .input-field:focus {
-              outline: none;
-              border-color: var(--accent-color);
-            }
+      .input-field:focus {
+        outline: none;
+        border-color: var(--accent-color);
+      }
 
-            .deploy-buttons {
-              margin: 1.5rem 0;
-              display: flex;
-              justify-content: center;
-              gap: 1rem;
-              flex-wrap: wrap;
-            }
+      .deploy-buttons {
+        margin: 1.5rem 0;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
 
-            .deploy-buttons a {
-              transition: transform 0.2s;
-            }
+      .deploy-buttons a {
+        transition: transform 0.2s;
+      }
 
-            .deploy-buttons a:hover {
-              transform: translateY(-2px);
-            }
+      .deploy-buttons a:hover {
+        transform: translateY(-2px);
+      }
 
-            .button-group {
-              display: flex;
-              gap: 1rem;
-              justify-content: center;
-              margin-top: 1.5rem;
-              flex-wrap: wrap;
-            }
+      .button-group {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+        flex-wrap: wrap;
+      }
 
-            .glass-btn {
-              padding: 0.875rem 1.75rem;
-              background: rgba(255, 255, 255, 0.1);
-              border: 1px solid rgba(255, 255, 255, 0.3);
-              border-radius: 8px;
-              color: white;
-              font-weight: 600;
-              cursor: pointer;
-              transition: all 0.3s;
-              font-size: 0.95rem;
-            }
+      .glass-btn {
+        padding: 0.875rem 1.75rem;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-size: 0.95rem;
+      }
 
-            .glass-btn:hover {
-              background: var(--button-hover);
-              transform: translateY(-1px);
-            }
+      .glass-btn:hover {
+        background: var(--button-hover);
+        transform: translateY(-1px);
+      }
 
-            .glass-btn:active {
-              transform: translateY(0);
-            }
+      .glass-btn:active {
+        transform: translateY(0);
+      }
 
-            .hidden {
-              display: none;
-            }
+      .hidden {
+        display: none;
+      }
 
-            .page-footer {
-              width: 100%;
-              text-align: center;
-              padding: 1.5rem 0.5rem;
-              font-size: 0.875rem;
-              color: #aaa;
-            }
+      .page-footer {
+        width: 100%;
+        text-align: center;
+        padding: 1.5rem 0.5rem;
+        font-size: 0.875rem;
+        color: #aaa;
+      }
 
-            .code-snippet {
-              display: inline-block;
-              background: var(--input-bg);
-              color: var(--code-color);
-              padding: 0.75rem 1.25rem;
-              border-radius: 8px;
-              font-family: 'SF Mono', 'Roboto Mono', monospace;
-              overflow-x: auto;
-              white-space: nowrap;
-              margin-top: 0.75rem;
-              font-size: 0.9rem;
-              max-width: 90%;
-            }
+      .code-snippet {
+        display: inline-block;
+        background: var(--input-bg);
+        color: var(--code-color);
+        padding: 0.75rem 1.25rem;
+        border-radius: 8px;
+        font-family: "SF Mono", "Roboto Mono", monospace;
+        overflow-x: auto;
+        white-space: nowrap;
+        margin-top: 0.75rem;
+        font-size: 0.9rem;
+        max-width: 90%;
+      }
 
-            .platform-count {
-              font-size: 0.9rem;
-              color: var(--accent-color);
-              margin-top: 0.5rem;
-            }
+      .platform-count {
+        font-size: 0.9rem;
+        color: var(--accent-color);
+        margin-top: 0.5rem;
+      }
 
-            @media (max-width: 768px) {
-              .container {
-                padding: 1.75rem;
-              }
-              
-              .deploy-buttons {
-                gap: 0.8rem;
-              }
-              
-              .button-group {
-                gap: 0.75rem;
-              }
-            }
-          </style>
-        </head>
-        <body>
-          <main class="container">
-            <h1>GitHub Deploy Button Generator</h1>
-            <p class="description">Create one-click deployment buttons for your GitHub Repos</p>
-            
-            <div class="deploy-buttons" id="button-container"></div>
-            <div id="count-display" class="platform-count hidden">Showing <span id="count">0</span> deployment options</div>
+      @media (max-width: 768px) {
+        .container {
+          padding: 1.75rem;
+        }
 
-            <form id="deployForm" onsubmit="event.preventDefault(); generateButtons();">
-              <input
-                id="username"
-                class="input-field"
-                type="text"
-                placeholder="GitHub Username"
-                required
-                aria-label="GitHub username"
-              />
-              <input
-                id="repo"
-                class="input-field"
-                type="text"
-                placeholder="Repository Name"
-                required
-                aria-label="Repository name"
-              />
-              <div class="button-group">
-                <button class="glass-btn" type="submit" id="generateButton">
-                  Generate Buttons
-                </button>
-                <button
-                  class="glass-btn hidden"
-                  type="button"
-                  id="exportButton"
-                  onclick="exportHTML()"
-                  aria-label="Export buttons as HTML"
-                >
-                  Export
-                </button>
-                <button
-                  class="glass-btn hidden"
-                  type="button"
-                  id="regenerateButton"
-                  onclick="regenerate()"
-                  aria-label="Reset form"
-                >
-                  Reset
-                </button>
-              </div>
-            </form>
-          </main>
+        .deploy-buttons {
+          gap: 0.8rem;
+        }
 
-          <footer class="page-footer">
-            <p>Embed this button generator in your project</p>
-            <pre class="code-snippet">&lt;script src="https://sudo-self.github.io/deploy-my-repo/deploy-my-repo.js"&gt;&lt;/script&gt;</pre>
-          </footer>
-          <footer class="w-full text-center py-4">
-            <a
-              href="https://deploy-my-repo.vercel.app"
-              class="text-white text-sm hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              deploy-my-repo.vercel.app
-            </a>
-          </footer>
+        .button-group {
+          gap: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>GitHub Deploy Button Generator</h1>
+      <p class="description">
+        Create one-click deployment buttons for your GitHub Repos
+      </p>
 
+      <div class="deploy-buttons" id="button-container"></div>
+      <div id="count-display" class="platform-count hidden">
+        Showing <span id="count">0</span> deployment options
+      </div>
 
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.js"
-            integrity="sha512-lYPRJJa6QHXqamKkXLo+5Dr5La1PVbHqw3/x5L91vsvBfL5rNc+QwA+5Vw6A5O5QeWY/q1MRO6JzyS5Hw5ZQ=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer">
-          </script>
+      <form
+        id="deployForm"
+        onsubmit="event.preventDefault(); generateButtons();"
+      >
+        <input
+          id="username"
+          class="input-field"
+          type="text"
+          placeholder="GitHub Username"
+          required
+          aria-label="GitHub username"
+        />
+        <input
+          id="repo"
+          class="input-field"
+          type="text"
+          placeholder="Repository Name"
+          required
+          aria-label="Repository name"
+        />
+        <div class="button-group">
+          <button class="glass-btn" type="submit" id="generateButton">
+            Generate Buttons
+          </button>
+          <button
+            class="glass-btn hidden"
+            type="button"
+            id="exportButton"
+            onclick="exportHTML()"
+            aria-label="Export buttons as HTML"
+          >
+            Export
+          </button>
+          <button
+            class="glass-btn hidden"
+            type="button"
+            id="regenerateButton"
+            onclick="regenerate()"
+            aria-label="Reset form"
+          >
+            Reset
+          </button>
+        </div>
+      </form>
+    </main>
 
-          <script>
-          
-            const deploymentPlatforms = [
-              {
-                name: "Vercel",
-                url: "https://vercel.com/new/clone?repository-url=https://github.com/{username}/{repo}",
-                button: "https://vercel.com/button",
-                width: 92,
-                height: 32
-              },
-              {
-                name: "Netlify",
-                url: "https://app.netlify.com/start/deploy?repository=https://github.com/{username}/{repo}",
-                button: "https://www.netlify.com/img/deploy/button.svg",
-                width: 146,
-                height: 32
-              },
-              {
-                name: "Cloudflare Workers",
-                url: "https://deploy.workers.cloudflare.com/?url=https://github.com/{username}/{repo}",
-                button: "https://deploy.workers.cloudflare.com/button",
-                width: 146,
-                height: 32
-              },
-              {
-                name: "Railway",
-                url: "https://railway.app/new/template?template=https://github.com/{username}/{repo}",
-                button: "https://railway.app/button.svg",
-                width: 146,
-                height: 32
-              },
-              {
-                name: "Render",
-                url: "https://render.com/deploy?repo=https://github.com/{username}/{repo}",
-                button: "https://render.com/images/deploy-to-render-button.svg",
-                width: 146,
-                height: 32
-              },
-              {
-                name: "DigitalOcean App Platform",
-                url: "https://cloud.digitalocean.com/apps/new?repo=https://github.com/{username}/{repo}",
-                button: "https://www.deploytodo.com/do-btn-blue.svg",
-                width: 146,
-                height: 32
-              },
-              {
-                name: "Heroku",
-                url: "https://heroku.com/deploy?template=https://github.com/{username}/{repo}",
-                button: "https://www.herokucdn.com/deploy/button.svg",
-                width: 146,
-                height: 32
-              },
-              {
-                name: "CodeSandbox",
-                url: "https://codesandbox.io/s/github/{username}/{repo}",
-                button: "https://codesandbox.io/static/img/play-codesandbox.svg",
-                width: 146,
-                height: 32
-              }
-            ];
+    <footer class="page-footer">
+      <p>Embed this button generator in your project</p>
+      <pre class="code-snippet">
+&lt;script src="https://sudo-self.github.io/deploy-my-repo/deploy-my-repo.js"&gt;&lt;/script&gt;</pre
+      >
+    </footer>
+    <footer class="w-full text-center py-4">
+      <a
+        href="https://deploy-my-repo.vercel.app"
+        class="text-white text-sm hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        deploy-my-repo.vercel.app
+      </a>
+    </footer>
 
-            function generateButtons() {
-              const username = document.getElementById("username").value.trim();
-              const repo = document.getElementById("repo").value.trim();
-              
-              if (!username || !repo) {
-                Toastify({
-                  text: "Please fill in both fields",
-                  duration: 3000,
-                  gravity: "top",
-                  position: "center",
-                  backgroundColor: "#ff4757",
-                }).showToast();
-                return;
-              }
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.js"
+      integrity="sha512-lYPRJJa6QHXqamKkXLo+5Dr5La1PVbHqw3/x5L91vsvBfL5rNc+QwA+5Vw6A5O5QeWY/q1MRO6JzyS5Hw5ZQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
-              let buttonsHTML = '';
-              
-              deploymentPlatforms.forEach(platform => {
-                const url = platform.url
-                  .replace('{username}', username)
-                  .replace('{repo}', repo);
-                
-                buttonsHTML += `
-                  <a href="${url}" target="_blank" rel="noopener noreferrer" title="Deploy to ${platform.name}">
-                    <img src="${platform.button}" 
-                         alt="Deploy to ${platform.name}" 
-                         width="${platform.width}" 
-                         height="${platform.height}" 
-                         loading="lazy" />
-                  </a>`;
-              });
+    <script>
+      const deploymentPlatforms = [
+        {
+          name: "Vercel",
+          url: "https://vercel.com/new/clone?repository-url=https://github.com/{username}/{repo}",
+          button: "https://vercel.com/button",
+          width: 92,
+          height: 32,
+        },
+        {
+          name: "Netlify",
+          url: "https://app.netlify.com/start/deploy?repository=https://github.com/{username}/{repo}",
+          button: "https://www.netlify.com/img/deploy/button.svg",
+          width: 146,
+          height: 32,
+        },
+        {
+          name: "Cloudflare Workers",
+          url: "https://deploy.workers.cloudflare.com/?url=https://github.com/{username}/{repo}",
+          button: "https://deploy.workers.cloudflare.com/button",
+          width: 146,
+          height: 32,
+        },
+        {
+          name: "Railway",
+          url: "https://railway.app/new/template?template=https://github.com/{username}/{repo}",
+          button: "https://railway.app/button.svg",
+          width: 146,
+          height: 32,
+        },
+        {
+          name: "Render",
+          url: "https://render.com/deploy?repo=https://github.com/{username}/{repo}",
+          button: "https://render.com/images/deploy-to-render-button.svg",
+          width: 146,
+          height: 32,
+        },
+        {
+          name: "DigitalOcean App Platform",
+          url: "https://cloud.digitalocean.com/apps/new?repo=https://github.com/{username}/{repo}",
+          button: "https://www.deploytodo.com/do-btn-blue.svg",
+          width: 146,
+          height: 32,
+        },
+        {
+          name: "Heroku",
+          url: "https://heroku.com/deploy?template=https://github.com/{username}/{repo}",
+          button: "https://www.herokucdn.com/deploy/button.svg",
+          width: 146,
+          height: 32,
+        },
+        {
+          name: "CodeSandbox",
+          url: "https://codesandbox.io/s/github/{username}/{repo}",
+          button: "https://codesandbox.io/static/img/play-codesandbox.svg",
+          width: 146,
+          height: 32,
+        },
+      ];
 
-              document.getElementById("button-container").innerHTML = buttonsHTML;
-              document.getElementById("count").textContent = deploymentPlatforms.length;
-              document.getElementById("count-display").classList.remove("hidden");
+      function generateButtons() {
+        const username = document.getElementById("username").value.trim();
+        const repo = document.getElementById("repo").value.trim();
 
-              document.getElementById("generateButton").classList.add("hidden");
-              document.getElementById("exportButton").classList.remove("hidden");
-              document.getElementById("regenerateButton").classList.remove("hidden");
-              
-             
-              document.getElementById("exportButton").focus();
-            }
+        if (!username || !repo) {
+          Toastify({
+            text: "Please fill in both fields",
+            duration: 3000,
+            gravity: "top",
+            position: "center",
+            backgroundColor: "#ff4757",
+          }).showToast();
+          return;
+        }
 
-            function regenerate() {
-              document.getElementById("button-container").innerHTML = "";
-              document.getElementById("username").value = "";
-              document.getElementById("repo").value = "";
-              document.getElementById("count-display").classList.add("hidden");
-              document.getElementById("generateButton").classList.remove("hidden");
-              document.getElementById("exportButton").classList.add("hidden");
-              document.getElementById("regenerateButton").classList.add("hidden");
-              document.getElementById("username").focus();
-            }
+        let buttonsHTML = "";
 
-            function exportHTML() {
-              const buttonsHTML = document.getElementById("button-container").innerHTML;
+        deploymentPlatforms.forEach((platform) => {
+          const url = platform.url
+            .replace("{username}", username)
+            .replace("{repo}", repo);
 
-              const htmlContent = `<!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Deploy Buttons</title>
-        <style>
-          body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #000;
-            font-family: Arial, sans-serif;
-          }
-          .deploy-container {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            max-width: 900px;
-            margin: 0 auto;
-          }
-          .deploy-container img {
-            height: 40px;
-            width: auto;
-          }
-          .platform-count {
-            color: #aaa;
-            text-align: center;
-            margin-bottom: 1rem;
-            font-family: Arial, sans-serif;
-          }
-        </style>
-      </head>
-      <body>
-        <div class="platform-count">${deploymentPlatforms.length} deployment options available</div>
-        <div class="deploy-container">${buttonsHTML}</div>
-      </body>
-      </html>`;
+          buttonsHTML += `
+            <a href="${url}" target="_blank" rel="noopener noreferrer" title="Deploy to ${platform.name}">
+              <img src="${platform.button}" 
+                   alt="Deploy to ${platform.name}" 
+                   width="${platform.width}" 
+                   height="${platform.height}" 
+                   loading="lazy" />
+            </a>`;
+        });
 
-              const blob = new Blob([htmlContent], { type: "text/html" });
-              const url = URL.createObjectURL(blob);
-              const a = document.createElement("a");
-              a.href = url;
-              a.download = "deploy-buttons.html";
-              document.body.appendChild(a);
-              a.click();
-              document.body.removeChild(a);
-              URL.revokeObjectURL(url);
-              
-              Toastify({
-                text: "HTML exported successfully!",
-                duration: 3000,
-                gravity: "top",
-                position: "center",
-                backgroundColor: "#00b09b",
-              }).showToast();
-            }
-          </script>
-        </body>
-      </html>
+        document.getElementById("button-container").innerHTML = buttonsHTML;
+        document.getElementById("count").textContent =
+          deploymentPlatforms.length;
+        document.getElementById("count-display").classList.remove("hidden");
+
+        document.getElementById("generateButton").classList.add("hidden");
+        document.getElementById("exportButton").classList.remove("hidden");
+        document.getElementById("regenerateButton").classList.remove("hidden");
+
+        document.getElementById("exportButton").focus();
+      }
+
+      function regenerate() {
+        document.getElementById("button-container").innerHTML = "";
+        document.getElementById("username").value = "";
+        document.getElementById("repo").value = "";
+        document.getElementById("count-display").classList.add("hidden");
+        document.getElementById("generateButton").classList.remove("hidden");
+        document.getElementById("exportButton").classList.add("hidden");
+        document.getElementById("regenerateButton").classList.add("hidden");
+        document.getElementById("username").focus();
+      }
+
+      function exportHTML() {
+        const buttonsHTML =
+          document.getElementById("button-container").innerHTML;
+
+        const htmlContent = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>deploy-my-repo</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #000;
+      font-family: Arial, sans-serif;
+    }
+    .deploy-container {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .deploy-container img {
+      height: 40px;
+      width: auto;
+    }
+    .platform-count {
+      color: #aaa;
+      text-align: center;
+      margin-bottom: 1rem;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+<!-- deploy-my-repo.vercel.app -->
+  <div class="deploy-container">${buttonsHTML}</div>
+</body>
+</html>`;
+
+        const blob = new Blob([htmlContent], { type: "text/html" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "deploy-my-repo.html";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+
+        Toastify({
+          text: "Buttons were saved successfully!",
+          duration: 3000,
+          gravity: "top",
+          position: "center",
+          backgroundColor: "#00b09b",
+        }).showToast();
+      }
+    </script>
+  </body>
+</html>
