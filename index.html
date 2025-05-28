@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Deploy Button Generator | GitHub to Cloudflare Workers & Vercel</title>
+   
 
-    <!-- Icons and Favicon -->
+
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png" />
     <link rel="manifest" href="manifest.json" />
 
-    <!-- Theme and Metadata -->
+
     <meta name="msapplication-TileColor" content="#000000" />
     <meta name="msapplication-TileImage" content="favicon-144.png" />
     <meta name="theme-color" content="#000000" />
@@ -26,7 +27,7 @@
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://sudo-self.github.io/deploy-button/" />
+    <meta property="og:url" content="https://deploy-my-repo.vercel.app" />
     <meta property="og:title" content="Deploy Button Generator" />
     <meta property="og:site_name" content="Deploy Button Generator" />
     <meta
@@ -39,7 +40,7 @@
     
     <!-- Twitter Card -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://sudo-self.github.io/deploy-button/" />
+    <meta property="twitter:url" content="https://deploy-my-repo.vercel.app" />
     <meta property="twitter:title" content="Deploy Button Generator" />
     <meta
       property="twitter:description"
@@ -59,6 +60,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Noto+Sans:wght@900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
       :root {
@@ -444,7 +446,7 @@
         <body>
           <main class="container">
             <h1>GitHub Deploy Button Generator</h1>
-            <p class="description">Create one-click deployment buttons for your GitHub repository across multiple platforms</p>
+            <p class="description">Create one-click deployment buttons for your GitHub Repos</p>
             
             <div class="deploy-buttons" id="button-container"></div>
             <div id="count-display" class="platform-count hidden">Showing <span id="count">0</span> deployment options</div>
@@ -493,9 +495,20 @@
           </main>
 
           <footer class="page-footer">
-            <p>Embed this button generator in your project:</p>
+            <p>Embed this button generator in your project</p>
             <pre class="code-snippet">&lt;script src="https://sudo-self.github.io/deploy-button/deploy-button.js"&gt;&lt;/script&gt;</pre>
           </footer>
+          <footer class="w-full text-center py-4">
+            <a
+              href="https://deploy-my-repo.vercel.app"
+              class="text-white text-sm hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              deploy-my-repo.vercel.app
+            </a>
+          </footer>
+
 
           <script src="https://cdnjs.cloudflare.com/ajax/libs/Toastify.js/1.12.0/Toastify.min.js"
             integrity="sha512-lYPRJJa6QHXqamKkXLo+5Dr5La1PVbHqw3/x5L91vsvBfL5rNc+QwA+5Vw6A5O5QeWY/q1MRO6JzyS5Hw5ZQ=="
