@@ -1,5 +1,10 @@
 # 🚀 deploy-my-repo
 
+| [![Deploy to Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/sudo-self/deploy-my-repo "Deploy to Vercel") | [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/sudo-self/deploy-my-repo "Deploy to Netlify") | [![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/sudo-self/deploy-my-repo "Deploy to Cloudflare Workers") | [![Deploy to Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/sudo-self/deploy-my-repo "Deploy to Railway") |
+|---|---|---|---|
+| [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/sudo-self/deploy-my-repo "Deploy to Render") | [![Deploy to DigitalOcean App Platform](https://www.deploytodo.com/do-btn-blue.svg)](https://cloud.digitalocean.com/apps/new?repo=https://github.com/sudo-self/deploy-my-repo "Deploy to DigitalOcean App Platform") | [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/sudo-self/deploy-my-repo "Deploy to Heroku") | [![Deploy to CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/github/sudo-self/deploy-my-repo "Deploy to CodeSandbox") |
+
+
 **deploy-my-repo** is a simple tool to generate **one-click deploy buttons** for your GitHub repositories. Supports platforms like **Vercel**, **Cloudflare Workers**, **Netlify**, and **CodeSandbox**.
 
 👉 Live Demo: [https://deploy-my-repo.vercel.app](https://deploy-my-repo.vercel.app)
